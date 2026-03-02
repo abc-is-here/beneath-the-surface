@@ -17,10 +17,10 @@ background_energy_multiplier = 0.07
 sky = SubResource("Sky_rwgxs")
 ambient_light_energy = 0.0
 tonemap_mode = 3
-glow_enabled = true
-glow_bloom = 0.46
 glow_hdr_luminance_cap = 26.2
 volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.005
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")

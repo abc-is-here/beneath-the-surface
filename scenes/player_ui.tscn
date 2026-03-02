@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cv8wymrotsmn7"]
+
+[ext_resource type="Texture2D" uid="uid://d0thug3m21ke1" path="res://assets/Vignette.png" id="1_jkj6h"]
+
+[node name="PlayerUI" type="Control" unique_id=1260514791]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="TextureRect" parent="." unique_id=332625571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 25.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jkj6h")
+
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=527597411]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 982.0
+offset_right = 389.0
+offset_bottom = 1009.0
+value = 100.0
+show_percentage = false
