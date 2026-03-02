@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://b2tjlrien20w"]
+
+[ext_resource type="Script" uid="uid://cwn7336odc5vx" path="res://scripts/character.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://d0thug3m21ke1" path="res://assets/Vignette.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://kvanjbpja16l" path="res://assets/light_texture.jpg" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://b33lejkfd8l7h" path="res://scenes/hands.tscn" id="3_qhqgy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+height = 2.3417969
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
+albedo_color = Color(0.55, 0.55, 0.55, 1)
+metallic = 1.0
+metallic_specular = 0.71
+roughness = 0.23
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qhqgy"]
+material = SubResource("StandardMaterial3D_qhqgy")
+rings = 8
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandsPivot/hands:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.40970966, 2.9160953, 0.008901466)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "stop_flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandsPivot/hands:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.0447351, 0.8858075, -2.2083), Vector3(0.40970966, 2.9160953, 0.008901466)]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "use_flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandsPivot/hands:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.40970966, 2.9160953, 0.008901466), Vector3(1.0447351, 0.8858075, -2.2083)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"stop_flash": SubResource("Animation_tuyoq"),
+&"use_flash": SubResource("Animation_qlg0r")
+}
+
+[node name="player" type="CharacterBody3D" unique_id=1941140771 node_paths=PackedStringArray("head", "camera", "hands_pivot", "hands_mesh")]
+script = ExtResource("1_3vyb7")
+head = NodePath("head")
+camera = NodePath("head/Camera3D")
+hands_pivot = NodePath("head/HandsPivot")
+hands_mesh = NodePath("head/HandsPivot/hands")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1015375673]
+transparency = 1.0
+mesh = SubResource("CapsuleMesh_u8vuu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1888750330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17089844, 0)
+shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="head" type="Marker3D" parent="." unique_id=744364628]
+transform = Transform3D(1, 0, 0, 0, 0.9681302, -0.2504476, 0, 0.2504476, 0.9681302, 0, 0.97545624, -0.48871422)
+
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=1628543596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031134248, 0.12976897)
+
+[node name="HandsPivot" type="Node3D" parent="head" unique_id=1677787541]
+
+[node name="hands" parent="head/HandsPivot" unique_id=1076140351 instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-1.3633918, 0.1368339, 0.2871204, 0.011430494, 1.284081, -0.55768025, -0.31785357, -0.54075384, -1.2516208, 0.11043233, -0.249596, 0.255541)
+
+[node name="TorchHolder" type="Node3D" parent="head/HandsPivot/hands" unique_id=202293630]
+transform = Transform3D(0.9999999, -1.8626451e-09, 0, 1.1175871e-08, 1, 0, -2.9802322e-08, 0, 1, 0.05668569, 0.124899596, 0.41893494)
+
+[node name="torch" type="MeshInstance3D" parent="head/HandsPivot/hands/TorchHolder" unique_id=49563038]
+transform = Transform3D(0.038899545, 0.007837025, -0.007715416, -0.009283481, 0.028323894, -0.034018587, -0.0008012336, 0.052310005, 0.019575702, 0.01829195, 0.0091150105, 0.014644504)
+mesh = SubResource("CylinderMesh_qhqgy")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head/HandsPivot/hands/TorchHolder/torch" unique_id=1783620488]
+transform = Transform3D(17.694925, -1.6133476, -1.7766763, -1.2494818, -0.6776414, -11.819619, 1.5003922, 17.75564, -1.1705914, -0.0073673725, 1.1133833, 0.002682209)
+light_color = Color(0.45103, 0.46, 0.4002, 1)
+light_energy = 1.3
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 16.0
+light_projector = ExtResource("3_dqkch")
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 40.0
+spot_angle = 30.0
+
+[node name="flashlight_anim" type="AnimationPlayer" parent="head" unique_id=2131184942]
+libraries/ = SubResource("AnimationLibrary_tuyoq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1428214640]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g2els")
+expand_mode = 5
+stretch_mode = 4

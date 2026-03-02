@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://choqrnay3cgpw"]
+
+[ext_resource type="PackedScene" uid="uid://b2tjlrien20w" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://doai78flmbn76" path="res://assets/tile.png" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://d0l8q7uivl2l7" path="res://scenes/film_grain.tscn" id="3_4wyf3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_rwgxs"]
+sky_material = SubResource("ProceduralSkyMaterial_nnsk1")
+
+[sub_resource type="Environment" id="Environment_4wyf3"]
+background_color = Color(0.05, 0.05, 0.05, 1)
+background_energy_multiplier = 0.07
+sky = SubResource("Sky_rwgxs")
+ambient_light_energy = 0.0
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.46
+glow_hdr_luminance_cap = 26.2
+volumetric_fog_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
+albedo_texture = ExtResource("1_rwgxs")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
+
+[node name="world" type="Node3D" unique_id=1701850548]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=471860845]
+environment = SubResource("Environment_4wyf3")
+
+[node name="floor" type="CSGMesh3D" parent="." unique_id=1751645354]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rwgxs")
+use_collision = true
+mesh = SubResource("BoxMesh_4wyf3")
+
+[node name="wall" type="CSGMesh3D" parent="." unique_id=1557387900]
+transform = Transform3D(40, 0, 0, 0, -4.371139e-08, -40, 0, 1, -1.7484556e-06, 0, 0, 16.573536)
+material_override = SubResource("StandardMaterial3D_rwgxs")
+use_collision = true
+mesh = SubResource("BoxMesh_4wyf3")
+
+[node name="wall4" type="CSGMesh3D" parent="." unique_id=1050667479]
+transform = Transform3D(40, 0, 0, 0, -4.371139e-08, -40, 0, 1, -1.7484556e-06, 0, 0, -21.035786)
+material_override = SubResource("StandardMaterial3D_rwgxs")
+use_collision = true
+mesh = SubResource("BoxMesh_4wyf3")
+
+[node name="wall2" type="CSGMesh3D" parent="." unique_id=595058194]
+transform = Transform3D(-1.7484556e-06, 1, -1.7484556e-06, 0, -4.371139e-08, -40, -40, -4.371139e-08, 7.642742e-14, -18.78887, -0.27293968, -0.8690367)
+material_override = SubResource("StandardMaterial3D_rwgxs")
+use_collision = true
+mesh = SubResource("BoxMesh_4wyf3")
+
+[node name="wall3" type="CSGMesh3D" parent="." unique_id=1892518848]
+transform = Transform3D(-1.7484556e-06, 1, -1.7484556e-06, 0, -4.371139e-08, -40, -40, -4.371139e-08, 7.642742e-14, 19.485676, -0.27293968, -0.8690367)
+material_override = SubResource("StandardMaterial3D_rwgxs")
+use_collision = true
+mesh = SubResource("BoxMesh_4wyf3")
+
+[node name="film_grain" parent="." unique_id=641134009 instance=ExtResource("3_4wyf3")]
+
+[node name="player" parent="." unique_id=1941140771 instance=ExtResource("1_nnsk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
