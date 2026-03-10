@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://lh1fwb7iqk7d"]
+
+[ext_resource type="Script" uid="uid://bxkmsmrjua1ai" path="res://scripts/pick_up_item.gd" id="1_iaw62"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_knq4h"]
+
+[node name="PickUpItem" type="Area3D" unique_id=1700904497]
+script = ExtResource("1_iaw62")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1750333135]
+shape = SubResource("SphereShape3D_knq4h")
+
+[node name="MeshHolder" type="Node3D" parent="." unique_id=1837621163]

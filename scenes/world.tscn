@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2tjlrien20w" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://doai78flmbn76" path="res://assets/tile.png" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://d0l8q7uivl2l7" path="res://scenes/film_grain.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://b1i7wlhlqa0lg" path="res://scenes/key_1_model.tscn" id="4_k0juu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,10 +18,10 @@ background_energy_multiplier = 0.07
 sky = SubResource("Sky_rwgxs")
 ambient_light_energy = 0.0
 tonemap_mode = 3
+tonemap_white = 22.6
 glow_hdr_luminance_cap = 26.2
 volumetric_fog_enabled = true
 adjustment_enabled = true
-adjustment_contrast = 1.005
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")
@@ -46,7 +47,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_4wyf3")
 
 [node name="wall4" type="CSGMesh3D" parent="." unique_id=1050667479]
-transform = Transform3D(40, 0, 0, 0, -4.371139e-08, -40, 0, 1, -1.7484556e-06, 0, 0, -21.035786)
+transform = Transform3D(40, 0, 0, 0, -4.371139e-08, -40, 0, 1, -1.7484556e-06, 0, 0, -20.035786)
 material_override = SubResource("StandardMaterial3D_rwgxs")
 use_collision = true
 mesh = SubResource("BoxMesh_4wyf3")
@@ -67,3 +68,6 @@ mesh = SubResource("BoxMesh_4wyf3")
 
 [node name="player" parent="." unique_id=1941140771 instance=ExtResource("1_nnsk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="key1_model" parent="." unique_id=931158007 instance=ExtResource("4_k0juu")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.114834785, 0.5, -3.4381)

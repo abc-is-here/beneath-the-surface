@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b1i7wlhlqa0lg"]
+
+[ext_resource type="PackedScene" uid="uid://bvxyhe7quvmp7" path="res://assets/key1_model.glb" id="1_lfklo"]
+[ext_resource type="Shader" uid="uid://cig1kke2ue4rd" path="res://scripts/outline.gdshader" id="2_i0rit"]
+
+[sub_resource type="Gradient" id="Gradient_hmps0"]
+colors = PackedColorArray(0.8963042, 0.73327184, 0, 1, 0.9996589, 0.79791516, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdh4j"]
+gradient = SubResource("Gradient_hmps0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0atj5"]
+render_priority = 0
+shader = ExtResource("2_i0rit")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_intensity = 5.0
+shader_parameter/shine_speed = 3.3270001580325
+shader_parameter/edge_thickness = 2.0
+shader_parameter/albedo_texture = SubResource("GradientTexture2D_cdh4j")
+shader_parameter/base_color = Vector3(0.5, 0.5, 0.5)
+shader_parameter/roughness = 0.5
+shader_parameter/metallic = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0rit"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="key1_model" unique_id=931158007 instance=ExtResource("1_lfklo")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Empty" parent="." index="0" unique_id=1097490100]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -3, 0, -4)
+visible = false
+
+[node name="Cube" parent="." index="1" unique_id=655011250]
+surface_material_override/0 = SubResource("ShaderMaterial_0atj5")
+
+[node name="Circle" parent="." index="2" unique_id=226112889]
+surface_material_override/0 = SubResource("StandardMaterial3D_i0rit")

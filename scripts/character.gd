@@ -63,6 +63,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var hands_default_z: float
 var flashlight_on = true
 
+# --- Inventory stuff ---
+var inventory = []
+var selected_item = 0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -213,3 +216,14 @@ func _physics_process(delta):
 	hands_pivot.rotation = hands_pivot.rotation.lerp(target_rotation, 10.0 * delta)
 
 	move_and_slide()
+
+# --- Pick Up and add stuff to inventory ---
+func pickup_item(item):
+
+	inventory.append({
+		"name": item.item_name,
+		"description": item.description,
+		"scene": item.item_scene
+	})
+
+	item.queue_free()
