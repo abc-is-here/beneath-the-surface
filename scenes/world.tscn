@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2tjlrien20w" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://doai78flmbn76" path="res://assets/tile.png" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://d0l8q7uivl2l7" path="res://scenes/film_grain.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://lh1fwb7iqk7d" path="res://scenes/pick_up_item.tscn" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b1i7wlhlqa0lg" path="res://scenes/key_1_model.tscn" id="4_k0juu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
@@ -69,5 +70,34 @@ mesh = SubResource("BoxMesh_4wyf3")
 [node name="player" parent="." unique_id=1941140771 instance=ExtResource("1_nnsk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 
-[node name="key1_model" parent="." unique_id=931158007 instance=ExtResource("4_k0juu")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.114834785, 0.5, -3.4381)
+[node name="PickUpItem" parent="." unique_id=1700904497 instance=ExtResource("4_71j4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7218845, -2.7246487)
+item_name = "Gold Keys"
+description = "Just some random keys you can find on ground lol"
+item_scene = ExtResource("4_k0juu")
+
+[node name="key1_model" parent="PickUpItem" unique_id=931158007 instance=ExtResource("4_k0juu")]
+
+[node name="PickUpItem2" parent="." unique_id=128363692 instance=ExtResource("4_71j4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.7218845, 0.2753513)
+item_name = "Gold Keys 2"
+description = "Just some random keys you can find on ground after key 1 lol"
+item_scene = ExtResource("4_k0juu")
+
+[node name="key1_model" parent="PickUpItem2" unique_id=716290711 instance=ExtResource("4_k0juu")]
+
+[node name="PickUpItem3" parent="." unique_id=1600091672 instance=ExtResource("4_71j4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.7218845, -2.7246487)
+item_name = "Gold Keys 3"
+description = "Just some random keys you can find on ground after key 2 lol"
+item_scene = ExtResource("4_k0juu")
+
+[node name="key1_model" parent="PickUpItem3" unique_id=300267398 instance=ExtResource("4_k0juu")]
+
+[node name="PickUpItem4" parent="." unique_id=141591706 instance=ExtResource("4_71j4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7218845, 5.2753515)
+item_name = "Gold Keys 4"
+description = "Just some random keys you can find on ground after key 3 lol"
+item_scene = ExtResource("4_k0juu")
+
+[node name="key1_model" parent="PickUpItem4" unique_id=1372315221 instance=ExtResource("4_k0juu")]

@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://fqhkoj80v2xy"]
+
+[ext_resource type="Script" uid="uid://bv41g342g3wp2" path="res://scripts/inventory_ui.gd" id="1_tahbm"]
+[ext_resource type="Shader" uid="uid://uv2ix4ia6i0s" path="res://scripts/blur_bg.gdshader" id="2_ylkvr"]
+[ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="3_mdwe3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdwe3"]
+shader = ExtResource("2_ylkvr")
+shader_parameter/shape_type = 1
+shader_parameter/rect_size = Vector2(1920, 1080)
+shader_parameter/corner_radius_top_left = 30.0
+shader_parameter/corner_radius_top_right = 30.0
+shader_parameter/corner_radius_bottom_left = 20.0
+shader_parameter/corner_radius_bottom_right = 30.0
+shader_parameter/circle_radius = 100.0
+shader_parameter/outline_enabled = true
+shader_parameter/outline_width = 2.0
+shader_parameter/outline_color = Color(1, 1, 1, 0.8)
+shader_parameter/shadow_enabled = true
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_blur = 20.0
+shader_parameter/edge_softness = 3.7360001774600002
+shader_parameter/shape_color = Color(0.84599996, 0.864, 0.9, 1)
+shader_parameter/color_gradient_y = 0.0
+shader_parameter/color_gradient_x = 0.005000095237500002
+shader_parameter/color_multiplier = 0.94800004177012
+shader_parameter/enable_screen_blur = true
+shader_parameter/blur_amount = 10.0
+shader_parameter/blur_samples = 8
+shader_parameter/glass_opacity = 0.11200000532
+shader_parameter/node_size = Vector2(400, 400)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylkvr"]
+font = ExtResource("3_mdwe3")
+font_size = 100
+outline_size = 6
+outline_color = Color(0.8556988, 0, 0.21155658, 1)
+shadow_size = 10
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iradw"]
+font = ExtResource("3_mdwe3")
+font_size = 60
+outline_size = 6
+outline_color = Color(0.8556988, 0, 0.21155658, 1)
+shadow_size = 10
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eifbp"]
+font = ExtResource("3_mdwe3")
+font_size = 60
+outline_size = 6
+outline_color = Color(0.8556988, 0, 0.21155658, 1)
+shadow_size = 10
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdwe3"]
+font = ExtResource("3_mdwe3")
+font_size = 25
+
+[node name="InventoryUI" type="Control" unique_id=461797327]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tahbm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1236127141]
+material = SubResource("ShaderMaterial_mdwe3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 55.0
+offset_right = -74.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1701475718]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 297.0
+offset_right = -1352.0
+offset_bottom = -271.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1310332500]
+own_world_3d = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="ItemViewer" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=606420246]
+
+[node name="ItemPivot" type="Node3D" parent="SubViewportContainer/SubViewport/ItemViewer" unique_id=996176729]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/ItemViewer" unique_id=471319724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/ItemViewer" unique_id=1384092105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1236591, 0.7706363)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="ItemName" type="Label" parent="." unique_id=990349660]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1029.0
+offset_top = 171.0
+offset_right = -286.0
+offset_bottom = 346.0
+grow_horizontal = 0
+text = "No Items"
+label_settings = SubResource("LabelSettings_ylkvr")
+
+[node name="Inventory" type="Label" parent="." unique_id=1337133975]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1832.0
+offset_top = 129.0
+offset_right = -1056.0
+offset_bottom = 304.0
+grow_horizontal = 0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_iradw")
+
+[node name="empty" type="Label" parent="." unique_id=1820662216]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1746.0
+offset_top = 498.0
+offset_right = -970.0
+offset_bottom = 673.0
+grow_horizontal = 0
+text = "Empty"
+label_settings = SubResource("LabelSettings_eifbp")
+
+[node name="ItemDesc" type="Label" parent="." unique_id=445639103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 612.0
+offset_top = 379.0
+offset_right = -114.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Collect items to use."
+label_settings = SubResource("LabelSettings_mdwe3")
+autowrap_mode = 3

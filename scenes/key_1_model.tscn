@@ -26,7 +26,7 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
 [node name="key1_model" unique_id=931158007 instance=ExtResource("1_lfklo")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.13580836, -0.102443516, 0.031674445)
 
 [node name="Empty" parent="." index="0" unique_id=1097490100]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -3, 0, -4)

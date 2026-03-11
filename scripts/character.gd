@@ -66,6 +66,9 @@ var flashlight_on = true
 # --- Inventory stuff ---
 var inventory = []
 var selected_item = 0
+@onready var interaction_check: RayCast3D = $head/Camera3D/InteractionCheck
+@onready var inventory_ui: Control = $InventoryUI
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -84,6 +87,7 @@ func _process(_delta):
 
 
 func _unhandled_input(event):
+
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		head.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -92,9 +96,17 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("cursor_toggle"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 
+	# --- Inventory ---
+	if event.is_action_pressed("inventory") and event.is_pressed():
+		if inventory_ui.visible:
+			inventory_ui.visible = false
+		else:
+			inventory_ui.open_inventory(inventory)
 
 func _physics_process(delta):
-
+	# --- Inventory ---
+	if inventory_ui.visible:
+		return
 	# --- Gravity ---
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -108,7 +120,14 @@ func _physics_process(delta):
 		else:
 			flashlight_anim.play("use_flash")
 		flashlight_on = !flashlight_on
+	
+	if Input.is_action_just_pressed("interact"):
+		if interaction_check.is_colliding():
+			var collider = interaction_check.get_collider()
 
+			if collider and collider.is_in_group("pickup_item"):
+				pickup_item(collider)
+	
 	# --- Input ---
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

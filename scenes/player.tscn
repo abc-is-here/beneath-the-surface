@@ -2,13 +2,29 @@
 
 [ext_resource type="Script" uid="uid://cwn7336odc5vx" path="res://scripts/character.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://d0thug3m21ke1" path="res://assets/Vignette.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://587s045sdrkr" path="res://assets/Circle.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://kvanjbpja16l" path="res://assets/light_texture.jpg" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://b33lejkfd8l7h" path="res://scenes/hands.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://fqhkoj80v2xy" path="res://scenes/inventory_ui.tscn" id="5_qlg0r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 height = 2.3417969
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjrip"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = ExtResource("2_tuyoq")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_smehm"]
+material = SubResource("StandardMaterial3D_fjrip")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
 albedo_color = Color(0.55, 0.55, 0.55, 1)
@@ -93,6 +109,16 @@ transform = Transform3D(1, 0, 0, 0, 0.9681302, -0.2504476, 0, 0.2504476, 0.96813
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=1628543596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031134248, 0.12976897)
 
+[node name="InteractionCheck" type="RayCast3D" parent="head/Camera3D" unique_id=1501815306]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="dott" type="MeshInstance3D" parent="head/Camera3D/InteractionCheck" unique_id=708639465]
+transform = Transform3D(0.01, 0, 0, 0, -4.656613e-10, -0.01, 0, 0.01, -4.656613e-10, 0, 0, -1.5)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_smehm")
+
 [node name="HandsPivot" type="Node3D" parent="head" unique_id=1677787541]
 
 [node name="hands" parent="head/HandsPivot" unique_id=1076140351 instance=ExtResource("3_qhqgy")]
@@ -143,3 +169,6 @@ offset_right = 389.0
 offset_bottom = 1009.0
 value = 100.0
 show_percentage = false
+
+[node name="InventoryUI" parent="." unique_id=461797327 instance=ExtResource("5_qlg0r")]
+visible = false

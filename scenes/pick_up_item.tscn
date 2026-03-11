@@ -4,7 +4,8 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_knq4h"]
 
-[node name="PickUpItem" type="Area3D" unique_id=1700904497]
+[node name="PickUpItem" type="Area3D" unique_id=1700904497 groups=["pickup_item"]]
+collision_layer = 2
 script = ExtResource("1_iaw62")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1750333135]
