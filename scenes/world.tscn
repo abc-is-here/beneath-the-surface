@@ -6,24 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lh1fwb7iqk7d" path="res://scenes/pick_up_item.tscn" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b1i7wlhlqa0lg" path="res://scenes/key_1_model.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://c8b61lfegu6ip" path="res://scenes/door.tscn" id="6_qfnet"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_rwgxs"]
-sky_material = SubResource("ProceduralSkyMaterial_nnsk1")
-
-[sub_resource type="Environment" id="Environment_4wyf3"]
-background_color = Color(0.05, 0.05, 0.05, 1)
-background_energy_multiplier = 0.07
-sky = SubResource("Sky_rwgxs")
-ambient_light_energy = 0.0
-tonemap_mode = 3
-tonemap_white = 22.6
-glow_hdr_luminance_cap = 26.2
-volumetric_fog_enabled = true
-adjustment_enabled = true
+[ext_resource type="PackedScene" uid="uid://ig7l3xwmxgoi" path="res://scenes/cabinet.tscn" id="7_i7141"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")
@@ -32,9 +15,6 @@ uv1_scale = Vector3(4, 4, 4)
 [sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
 
 [node name="world" type="Node3D" unique_id=1701850548]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=471860845]
-environment = SubResource("Environment_4wyf3")
 
 [node name="floor" type="CSGMesh3D" parent="." unique_id=1751645354]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
@@ -110,3 +90,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5013304, 4.4163747)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5013304, -3.2353096)
 key_req = true
 req_key_name = "Gold Key"
+
+[node name="cabinet" parent="." unique_id=1771964255 instance=ExtResource("7_i7141")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -3.5880933, 0.5193701, 5.276666)

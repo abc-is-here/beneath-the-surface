@@ -81,9 +81,15 @@ func _ready():
 
 	stamina_bar.value = 100
 
-
 func _process(_delta):
 	stamina_bar.value = (stamina / max_stamina) * 100.0
+	
+	if interaction_check.is_colliding():
+		var collider = interaction_check.get_collider()
+		if collider and collider.is_in_group("pickup_item"):
+			$PickUpLabel.visible = true
+	else:
+		$PickUpLabel.visible = false
 
 
 func _unhandled_input(event):
@@ -124,12 +130,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if interaction_check.is_colliding():
 			var collider = interaction_check.get_collider()
-				
 			if collider and collider.is_in_group("pickup_item"):
 				pickup_item(collider)
-			if collider.is_in_group("interact_items"):
+			if collider.is_in_group("door"):
 				collider.get_parent().get_parent().work(inventory)
-	
+			if collider.is_in_group("cabinet"):
+				collider.work()
 	
 	# --- Input ---
 	var input_dir = Input.get_vector("left", "right", "up", "down")

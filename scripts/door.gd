@@ -11,11 +11,6 @@ func _ready() -> void:
 	$Label.visible = false
 
 func work(inventory):
-	
-	#test test
-	print("Door interaction triggered")
-	print("Inventory:", inventory)
-	print("Required key:", req_key_name)
 
 	if not openable:
 		return

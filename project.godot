@@ -25,6 +25,8 @@ window/stretch/mode="canvas_items"
 
 pickup_item=""
 interact_items=""
+door=""
+cabinet=""
 
 [input]
 

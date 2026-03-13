@@ -84,7 +84,7 @@ anim_player = NodePath("door_anim")
 [node name="hinge" type="Node3D" parent="." unique_id=1653251970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0592129, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="hinge" unique_id=996276665 groups=["interact_items"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="hinge" unique_id=996276665 groups=["door"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0592129, 0, 0)
 collision_layer = 2
 

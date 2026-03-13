@@ -13,20 +13,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 height = 2.3417969
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjrip"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-shading_mode = 0
-disable_ambient_light = true
-disable_fog = true
-disable_specular_occlusion = true
-albedo_texture = ExtResource("2_tuyoq")
-disable_receive_shadows = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_smehm"]
-material = SubResource("StandardMaterial3D_fjrip")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
 albedo_color = Color(0.55, 0.55, 0.55, 1)
 metallic = 1.0
@@ -95,6 +81,8 @@ font_size = 24
 font_color = Color(1, 1, 1, 0.6431373)
 
 [node name="player" type="CharacterBody3D" unique_id=1941140771 node_paths=PackedStringArray("head", "camera", "hands_pivot", "hands_mesh")]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_3vyb7")
 head = NodePath("head")
 camera = NodePath("head/Camera3D")
@@ -117,13 +105,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031134248, 0.12976897)
 
 [node name="InteractionCheck" type="RayCast3D" parent="head/Camera3D" unique_id=1501815306]
 target_position = Vector3(0, 0, -2.5)
-collision_mask = 2
+collision_mask = 66
 collide_with_areas = true
-
-[node name="dott" type="MeshInstance3D" parent="head/Camera3D/InteractionCheck" unique_id=708639465]
-transform = Transform3D(0.01, 0, 0, 0, -4.656613e-10, -0.01, 0, 0.01, -4.656613e-10, 0, 0, -1.5)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_smehm")
 
 [node name="HandsPivot" type="Node3D" parent="head" unique_id=1677787541]
 
@@ -194,3 +177,8 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "PickUp — [E]"
 label_settings = SubResource("LabelSettings_smehm")
+
+[node name="Circle" type="Sprite2D" parent="." unique_id=1377780083]
+position = Vector2(960, 540)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tuyoq")

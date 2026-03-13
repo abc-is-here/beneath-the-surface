@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://ig7l3xwmxgoi"]
+
+[ext_resource type="PackedScene" uid="uid://doecwttfhipqj" path="res://assets/cabinet.glb" id="1_xr4xt"]
+[ext_resource type="PackedScene" uid="uid://s73y5p1v5tbq" path="res://scenes/door_left.tscn" id="2_c6sfa"]
+[ext_resource type="Script" uid="uid://cmdgrgwevuk1m" path="res://scripts/cabinet.gd" id="2_jpwin"]
+[ext_resource type="PackedScene" uid="uid://b4vem32sjxog5" path="res://scenes/door_right.tscn" id="3_jpwin"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpwin"]
+size = Vector3(4.138733, 7.489258, 2.1190186)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c6sfa"]
+data = PackedVector3Array(-2, 0.0053999997, 1.5, -2, 8.0054, -1.5, -2, 8.0054, 1.5, -2, 0.0053999997, 1.5, -2, 0.0053999997, -1.5, -2, 8.0054, -1.5, -2, 0.0053999997, -1.5, 2, 8.0054, -1.5, -2, 8.0054, -1.5, -2, 0.0053999997, -1.5, 2, 0.0053999997, -1.5, 2, 8.0054, -1.5, 2, 0.0053999997, -1.5, 2, 8.0054, 1.5, 2, 8.0054, -1.5, 2, 0.0053999997, -1.5, 2, 0.0053999997, 1.5, 2, 8.0054, 1.5, -2, 0.0053999997, -1.5, 2, 0.0053999997, 1.5, 2, 0.0053999997, -1.5, -2, 0.0053999997, -1.5, -2, 0.0053999997, 1.5, 2, 0.0053999997, 1.5, 2, 8.0054, -1.5, -2, 8.0054, 1.5, -2, 8.0054, -1.5, 2, 8.0054, -1.5, 2, 8.0054, 1.5, -2, 8.0054, 1.5, -1.8810999, 0.24319999, 1.5, -2, 8.0054, 1.5, -1.8810999, 7.7675, 1.5, -1.8810999, 7.7675, 1.5, -2, 8.0054, 1.5, 2, 8.0054, 1.5, -1.8810999, 0.24319999, 1.5, -2, 0.0053999997, 1.5, -2, 8.0054, 1.5, -1.8810999, 7.7675, 1.5, 2, 8.0054, 1.5, 1.8809999, 7.7675, 1.5, 1.8809999, 0.24319999, 1.5, -2, 0.0053999997, 1.5, -1.8810999, 0.24319999, 1.5, 1.8809999, 7.7675, 1.5, 2, 8.0054, 1.5, 2, 0.0053999997, 1.5, 1.8809999, 0.24319999, 1.5, 2, 0.0053999997, 1.5, -2, 0.0053999997, 1.5, 1.8809999, 7.7675, 1.5, 2, 0.0053999997, 1.5, 1.8809999, 0.24319999, 1.5)
+backface_collision = true
+
+[sub_resource type="Animation" id="Animation_c6sfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lft_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jpwin"]
+resource_name = "close_cabinet"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3962634, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lft_pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.3962634, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_42ncc"]
+resource_name = "open_cabinet"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right_pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3962634, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lft_pivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.3962634, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2p3p"]
+_data = {
+&"RESET": SubResource("Animation_c6sfa"),
+&"close_cabinet": SubResource("Animation_jpwin"),
+&"open_cabinet": SubResource("Animation_42ncc")
+}
+
+[node name="cabinet" unique_id=1771964255 groups=["cabinet"] instance=ExtResource("1_xr4xt")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0" unique_id=1265520937 groups=["cabinet"]]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("2_jpwin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=73984851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014556885, 3.8100586, 2.1338248)
+shape = SubResource("BoxShape3D_jpwin")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." index="1" unique_id=839061137]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0" unique_id=138978052]
+shape = SubResource("ConcavePolygonShape3D_c6sfa")
+
+[node name="lft_pivot" type="Node3D" parent="." index="3" unique_id=1426576963]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, -1.8350987, 4.218927, 1.4792311)
+
+[node name="door-left" parent="lft_pivot" index="0" unique_id=1954017923 instance=ExtResource("2_c6sfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8350987, -4.218927, -1.4792311)
+
+[node name="StaticBody3D" parent="lft_pivot/door-left" index="1" unique_id=425071405]
+collision_layer = 1
+collision_mask = 1
+
+[node name="right_pivot" type="Node3D" parent="." index="4" unique_id=1899600179]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 1.8764699, 3.5391555, 1.489644)
+
+[node name="door-right" parent="right_pivot" index="0" unique_id=1218589349 instance=ExtResource("3_jpwin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8764699, -3.5391555, -1.489644)
+
+[node name="StaticBody3D" parent="right_pivot/door-right" index="1" unique_id=841937589]
+collision_layer = 1
+collision_mask = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1893510723]
+libraries/ = SubResource("AnimationLibrary_d2p3p")
+
+[editable path="lft_pivot/door-left"]
+[editable path="right_pivot/door-right"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4vem32sjxog5"]
+
+[ext_resource type="PackedScene" uid="uid://mdqijpg3v5c1" path="res://assets/door-right.glb" id="1_iuf8t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iuf8t"]
+size = Vector3(2.1159058, 6.3625336, 0.50709534)
+
+[node name="door-right" unique_id=1218589349 instance=ExtResource("1_iuf8t")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=841937589 groups=["cabinet"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1762003718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0825264, 3.8356712, 1.5334687)
+shape = SubResource("BoxShape3D_iuf8t")
