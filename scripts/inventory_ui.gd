@@ -39,6 +39,8 @@ func show_item():
 	$empty.visible = false
 
 func _input(event):
+	if items.size() == 0:
+		return
 
 	if Input.is_action_just_pressed("left"):
 		index = (index - 1 + items.size()) % items.size()

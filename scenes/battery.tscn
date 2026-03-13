@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://7jv4n26e3rkp"]
+
+[ext_resource type="PackedScene" uid="uid://cvm3e7lufxl7e" path="res://assets/battery.glb" id="1_bavnn"]
+
+[node name="battery" unique_id=851993318 instance=ExtResource("1_bavnn")]

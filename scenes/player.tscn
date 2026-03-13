@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kvanjbpja16l" path="res://assets/light_texture.jpg" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://b33lejkfd8l7h" path="res://scenes/hands.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://fqhkoj80v2xy" path="res://scenes/inventory_ui.tscn" id="5_qlg0r"]
+[ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="7_fjrip"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
 
@@ -87,6 +88,11 @@ _data = {
 &"stop_flash": SubResource("Animation_tuyoq"),
 &"use_flash": SubResource("Animation_qlg0r")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+font = ExtResource("7_fjrip")
+font_size = 24
+font_color = Color(1, 1, 1, 0.6431373)
 
 [node name="player" type="CharacterBody3D" unique_id=1941140771 node_paths=PackedStringArray("head", "camera", "hands_pivot", "hands_mesh")]
 script = ExtResource("1_3vyb7")
@@ -172,3 +178,19 @@ show_percentage = false
 
 [node name="InventoryUI" parent="." unique_id=461797327 instance=ExtResource("5_qlg0r")]
 visible = false
+
+[node name="PickUpLabel" type="Label" parent="." unique_id=570639124]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -172.0
+offset_right = 100.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PickUp — [E]"
+label_settings = SubResource("LabelSettings_smehm")

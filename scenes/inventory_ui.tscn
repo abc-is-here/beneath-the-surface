@@ -108,6 +108,7 @@ current = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/ItemViewer" unique_id=1384092105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1236591, 0.7706363)
+light_energy = 7.883
 shadow_enabled = true
 distance_fade_enabled = true
 

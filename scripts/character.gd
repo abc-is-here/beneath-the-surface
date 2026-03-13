@@ -124,9 +124,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if interaction_check.is_colliding():
 			var collider = interaction_check.get_collider()
-
+				
 			if collider and collider.is_in_group("pickup_item"):
 				pickup_item(collider)
+			if collider.is_in_group("interact_items"):
+				collider.get_parent().get_parent().work(inventory)
+	
 	
 	# --- Input ---
 	var input_dir = Input.get_vector("left", "right", "up", "down")
