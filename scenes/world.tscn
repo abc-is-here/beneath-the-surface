@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1i7wlhlqa0lg" path="res://scenes/key_1_model.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://c8b61lfegu6ip" path="res://scenes/door.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://ig7l3xwmxgoi" path="res://scenes/cabinet.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://fk8ibagxsriq" path="res://scenes/evil_orph.tscn" id="8_4mrxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")
@@ -84,12 +85,15 @@ item_scene = ExtResource("4_k0juu")
 [node name="key1_model" parent="PickUpItem4" unique_id=1372315221 instance=ExtResource("4_k0juu")]
 
 [node name="door" parent="." unique_id=1898807429 instance=ExtResource("6_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5013304, 4.4163747)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1.9233522, 4.4163747)
 
 [node name="door2" parent="." unique_id=1172817828 instance=ExtResource("6_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5013304, -3.2353096)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 2.0776103, -3.2353096)
 key_req = true
 req_key_name = "Gold Key"
 
 [node name="cabinet" parent="." unique_id=1771964255 instance=ExtResource("7_i7141")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -3.5880933, 0.5193701, 5.276666)
+
+[node name="evil-orph" parent="." unique_id=979130940 instance=ExtResource("8_4mrxx")]
+transform = Transform3D(-0.17131007, 0, -0.98521715, 0, 1, 0, 0.98521715, 0, -0.17131007, 5.087285, 0.6633203, 0)
