@@ -83,7 +83,7 @@ font = ExtResource("7_fjrip")
 font_size = 24
 font_color = Color(1, 1, 1, 0.6431373)
 
-[node name="player" type="CharacterBody3D" unique_id=1941140771 node_paths=PackedStringArray("head", "camera", "hands_pivot", "hands_mesh")]
+[node name="player" type="CharacterBody3D" unique_id=1941140771 node_paths=PackedStringArray("head", "camera", "hands_pivot", "hands_mesh") groups=["player"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_3vyb7")

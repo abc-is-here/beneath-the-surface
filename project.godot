@@ -31,6 +31,8 @@ pickup_item=""
 interact_items=""
 door=""
 cabinet=""
+enemy=""
+player=""
 
 [input]
 

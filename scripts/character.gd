@@ -278,3 +278,6 @@ func pickup_item(item):
 	})
 
 	item.queue_free()
+
+func jumpscare():
+	pass

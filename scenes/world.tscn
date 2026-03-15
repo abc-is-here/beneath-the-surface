@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://choqrnay3cgpw"]
 
+[ext_resource type="Script" uid="uid://c7saw6sahxwph" path="res://scripts/temp_world.gd" id="1_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://b2tjlrien20w" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://doai78flmbn76" path="res://assets/tile.png" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://d0l8q7uivl2l7" path="res://scenes/film_grain.tscn" id="3_4wyf3"]
@@ -8,8 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://c8b61lfegu6ip" path="res://scenes/door.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://c3dbdpq63ckpy" path="res://scenes/wire-glow.tscn" id="7_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://ig7l3xwmxgoi" path="res://scenes/cabinet.tscn" id="7_i7141"]
-[ext_resource type="PackedScene" uid="uid://fk8ibagxsriq" path="res://scenes/evil_orph.tscn" id="8_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://b2fm1rmas1g12" path="res://scenes/generator_without_wire.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://owcf1n0ppdn6" path="res://scenes/enemy.tscn" id="11_q5onr"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_e3hyu"]
+vertices = PackedVector3Array(-13.262913, 1, 9.230972, 13.237087, 1, 9.230972, 13.237087, 1, -9.269028, -13.262913, 1, -9.269028)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+border_size = 1.0
+agent_height = 1.6
+agent_radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")
@@ -18,9 +26,13 @@ uv1_scale = Vector3(4, 4, 4)
 [sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
 
 [node name="world" type="Node3D" unique_id=1701850548]
+script = ExtResource("1_e3hyu")
 
-[node name="floor" type="CSGMesh3D" parent="." unique_id=1751645354]
-transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=20112010]
+navigation_mesh = SubResource("NavigationMesh_e3hyu")
+
+[node name="floor" type="CSGMesh3D" parent="NavigationRegion3D" unique_id=1751645354]
+transform = Transform3D(28.525826, 0, 0, 0, 1, 0, 0, 0, 20.538055, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_rwgxs")
 use_collision = true
 mesh = SubResource("BoxMesh_4wyf3")
@@ -108,10 +120,22 @@ req_key_name = "Gold Key"
 [node name="cabinet" parent="." unique_id=1771964255 instance=ExtResource("7_i7141")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -3.5880933, 0.5193701, 5.276666)
 
-[node name="evil-orph" parent="." unique_id=979130940 instance=ExtResource("8_4mrxx")]
-transform = Transform3D(-0.17131007, 0, -0.98521715, 0, 1, 0, 0.98521715, 0, -0.17131007, 5.087285, 0.6633203, 0)
-
 [node name="generator" parent="." unique_id=1305441882 instance=ExtResource("11_e3hyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5115504, 10.595995)
+
+[node name="enemy" parent="." unique_id=1034978876 node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_q5onr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0467896, 0.6885085, 0)
+patrol_points = [NodePath("../PatrolPoints/Marker3D"), NodePath("../PatrolPoints/Marker3D2"), NodePath("../PatrolPoints/Marker3D3")]
+
+[node name="PatrolPoints" type="Node3D" parent="." unique_id=568807002]
+
+[node name="Marker3D" type="Marker3D" parent="PatrolPoints" unique_id=397351204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="PatrolPoints" unique_id=1623417512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.145409, 1, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="PatrolPoints" unique_id=1715215939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98528004, 1, -6.89835)
 
 [editable path="PickUpItem5"]
