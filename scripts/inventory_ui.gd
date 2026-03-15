@@ -84,22 +84,9 @@ func scale_model(model):
 
 	model.scale = Vector3.ONE * scale_factor
 
-func _unhandled_input(event):
-
-	if visible and event is InputEventMouseMotion:
-		item_pivot.rotate_y(-event.relative.x * 0.01)
-		item_pivot.rotate_x(-event.relative.y * 0.01)
-
 func open_inventory(new_items):
 
 	items = new_items
 	index = 0
 	show_item()
 	visible = true
-
-func _visibility_changed():
-
-	if visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

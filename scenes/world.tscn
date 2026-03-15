@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://lh1fwb7iqk7d" path="res://scenes/pick_up_item.tscn" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b1i7wlhlqa0lg" path="res://scenes/key_1_model.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://c8b61lfegu6ip" path="res://scenes/door.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://c3dbdpq63ckpy" path="res://scenes/wire-glow.tscn" id="7_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://ig7l3xwmxgoi" path="res://scenes/cabinet.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://fk8ibagxsriq" path="res://scenes/evil_orph.tscn" id="8_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://b2fm1rmas1g12" path="res://scenes/generator_without_wire.tscn" id="11_e3hyu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
 albedo_texture = ExtResource("1_rwgxs")
@@ -84,11 +86,22 @@ item_scene = ExtResource("4_k0juu")
 
 [node name="key1_model" parent="PickUpItem4" unique_id=1372315221 instance=ExtResource("4_k0juu")]
 
+[node name="PickUpItem5" parent="." unique_id=1346804898 instance=ExtResource("4_71j4m")]
+transform = Transform3D(0.98960125, -6.2873613e-09, -0.14383806, -0.1290721, 0.44133353, -0.8880119, 0.06348056, 0.8973431, 0.4367442, 2, 0.5314013, 5.2753515)
+item_name = "Wire"
+description = "Just some random keys you can find on ground after key 3 lol"
+item_scene = ExtResource("7_e3hyu")
+
+[node name="CollisionShape3D" parent="PickUpItem5" index="0" unique_id=1750333135]
+transform = Transform3D(1.0000002, -7.450581e-09, 3.5390258e-08, 0, 1.0000002, 2.9802322e-08, 3.7252903e-09, -2.9802322e-08, 1.0000002, 0.032987118, 0.46629333, 0.22694874)
+
+[node name="wire" parent="PickUpItem5" unique_id=1454266617 instance=ExtResource("7_e3hyu")]
+
 [node name="door" parent="." unique_id=1898807429 instance=ExtResource("6_qfnet")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1.9233522, 4.4163747)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 1.9755793, 4.4163747)
 
 [node name="door2" parent="." unique_id=1172817828 instance=ExtResource("6_qfnet")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 2.0776103, -3.2353096)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 2.0210001, -3.2353096)
 key_req = true
 req_key_name = "Gold Key"
 
@@ -97,3 +110,8 @@ transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-
 
 [node name="evil-orph" parent="." unique_id=979130940 instance=ExtResource("8_4mrxx")]
 transform = Transform3D(-0.17131007, 0, -0.98521715, 0, 1, 0, 0.98521715, 0, -0.17131007, 5.087285, 0.6633203, 0)
+
+[node name="generator" parent="." unique_id=1305441882 instance=ExtResource("11_e3hyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5115504, 10.595995)
+
+[editable path="PickUpItem5"]

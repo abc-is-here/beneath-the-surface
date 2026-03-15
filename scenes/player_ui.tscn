@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cv8wymrotsmn7"]
 
 [ext_resource type="Texture2D" uid="uid://d0thug3m21ke1" path="res://assets/Vignette.png" id="1_jkj6h"]
+[ext_resource type="Texture2D" uid="uid://bbavi6wi0ylr" path="res://assets/stamina_empty 2.PNG" id="2_8isll"]
+[ext_resource type="Texture2D" uid="uid://cuseriytmin7b" path="res://assets/stamina_cover 2.PNG" id="3_7ctsh"]
+[ext_resource type="Texture2D" uid="uid://466tifvraxj2" path="res://assets/stamina_fill 2.PNG" id="4_bkx2g"]
 
 [node name="PlayerUI" type="Control" unique_id=1260514791]
 layout_mode = 3
@@ -23,7 +26,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_jkj6h")
 
-[node name="StaminaBar" type="ProgressBar" parent="." unique_id=527597411]
+[node name="StaminaBar1" type="ProgressBar" parent="." unique_id=527597411]
+visible = false
 layout_mode = 0
 offset_left = 75.0
 offset_top = 982.0
@@ -31,3 +35,13 @@ offset_right = 389.0
 offset_bottom = 1009.0
 value = 100.0
 show_percentage = false
+
+[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=1945681989]
+layout_mode = 1
+offset_right = 2360.0
+offset_bottom = 1640.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
+texture_under = ExtResource("2_8isll")
+texture_over = ExtResource("3_7ctsh")
+texture_progress = ExtResource("4_bkx2g")

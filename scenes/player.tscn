@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://kvanjbpja16l" path="res://assets/light_texture.jpg" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://b33lejkfd8l7h" path="res://scenes/hands.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://fqhkoj80v2xy" path="res://scenes/inventory_ui.tscn" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bbavi6wi0ylr" path="res://assets/stamina_empty 2.PNG" id="5_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://cuseriytmin7b" path="res://assets/stamina_cover 2.PNG" id="6_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://466tifvraxj2" path="res://assets/stamina_fill 2.PNG" id="7_3v2ag"]
 [ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="7_fjrip"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
@@ -140,6 +143,7 @@ transform = Transform3D(0.995135, -0.007380111, -0.09824403, 0.024674308, 0.9840
 target_position = Vector3(0, 0, -1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1428214640]
+modulate = Color(1, 1, 1, 0.6627451)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -151,13 +155,21 @@ texture = ExtResource("2_g2els")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="StaminaBar" type="ProgressBar" parent="." unique_id=635669378]
-offset_left = 75.0
-offset_top = 982.0
-offset_right = 389.0
-offset_bottom = 1009.0
+[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=564424811]
+modulate = Color(1, 1, 1, 0.5686275)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -18.000002
+offset_top = -236.0
+offset_right = 2342.0
+offset_bottom = 1404.0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
 value = 100.0
-show_percentage = false
+texture_under = ExtResource("5_y4r1p")
+texture_over = ExtResource("6_d2wvv")
+texture_progress = ExtResource("7_3v2ag")
 
 [node name="InventoryUI" parent="." unique_id=461797327 instance=ExtResource("5_qlg0r")]
 visible = false

@@ -12,10 +12,10 @@ gradient = SubResource("Gradient_hmps0")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0atj5"]
 render_priority = 0
 shader = ExtResource("2_i0rit")
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_intensity = 5.0
-shader_parameter/shine_speed = 3.3270001580325
-shader_parameter/edge_thickness = 2.0
+shader_parameter/shine_color = Color(0.81563514, 0.7834553, 0.686584, 1)
+shader_parameter/shine_intensity = 2.04400009709
+shader_parameter/shine_speed = 0.8110000385225
+shader_parameter/edge_thickness = 0.4400000209
 shader_parameter/albedo_texture = SubResource("GradientTexture2D_cdh4j")
 shader_parameter/base_color = Vector3(0.5, 0.5, 0.5)
 shader_parameter/roughness = 0.5

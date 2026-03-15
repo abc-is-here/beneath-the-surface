@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bv41g342g3wp2" path="res://scripts/inventory_ui.gd" id="1_tahbm"]
 [ext_resource type="Shader" uid="uid://uv2ix4ia6i0s" path="res://scripts/blur_bg.gdshader" id="2_ylkvr"]
 [ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="3_mdwe3"]
+[ext_resource type="Texture2D" uid="uid://cf2hk37t7f757" path="res://assets/inventory_nav.png" id="4_iradw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdwe3"]
 shader = ExtResource("2_ylkvr")
@@ -10,7 +11,7 @@ shader_parameter/shape_type = 1
 shader_parameter/rect_size = Vector2(1920, 1080)
 shader_parameter/corner_radius_top_left = 30.0
 shader_parameter/corner_radius_top_right = 30.0
-shader_parameter/corner_radius_bottom_left = 20.0
+shader_parameter/corner_radius_bottom_left = 30.0
 shader_parameter/corner_radius_bottom_right = 30.0
 shader_parameter/circle_radius = 100.0
 shader_parameter/outline_enabled = true
@@ -28,8 +29,13 @@ shader_parameter/color_multiplier = 0.94800004177012
 shader_parameter/enable_screen_blur = true
 shader_parameter/blur_amount = 10.0
 shader_parameter/blur_samples = 8
-shader_parameter/glass_opacity = 0.11200000532
+shader_parameter/glass_opacity = 0.0490000023275
 shader_parameter/node_size = Vector2(400, 400)
+
+[sub_resource type="Environment" id="Environment_mdwe3"]
+background_mode = 1
+glow_enabled = true
+glow_bloom = 0.27
 
 [sub_resource type="LabelSettings" id="LabelSettings_ylkvr"]
 font = ExtResource("3_mdwe3")
@@ -112,6 +118,9 @@ light_energy = 7.883
 shadow_enabled = true
 distance_fade_enabled = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/ItemViewer" unique_id=928100748]
+environment = SubResource("Environment_mdwe3")
+
 [node name="ItemName" type="Label" parent="." unique_id=990349660]
 layout_mode = 1
 anchors_preset = 1
@@ -165,3 +174,17 @@ grow_vertical = 2
 text = "Collect items to use."
 label_settings = SubResource("LabelSettings_mdwe3")
 autowrap_mode = 3
+
+[node name="InventoryNav" type="Sprite2D" parent="." unique_id=122724465]
+modulate = Color(1, 1, 1, 0.418)
+position = Vector2(485.00003, 918)
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_iradw")
+
+[node name="InventoryNav2" type="Sprite2D" parent="." unique_id=1943741463]
+modulate = Color(1, 1, 1, 0.41700003)
+position = Vector2(130.00002, 907)
+rotation = -1.5707964
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_iradw")

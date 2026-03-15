@@ -1,22 +1,11 @@
 [gd_scene format=3 uid="uid://c8b61lfegu6ip"]
 
 [ext_resource type="Script" uid="uid://c7wc04p66fixj" path="res://scripts/door.gd" id="1_hpvv5"]
+[ext_resource type="PackedScene" uid="uid://bcletwqucy5lq" path="res://scenes/doors.tscn" id="2_83dcw"]
 [ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="2_uvdjg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f452"]
-albedo_color = Color(0.51, 0.19549999, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hpvv5"]
-material = SubResource("StandardMaterial3D_5f452")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvdjg"]
-albedo_color = Color(1, 0.3954128, 0.16110232, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_83dcw"]
-material = SubResource("StandardMaterial3D_uvdjg")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_la1wf"]
-size = Vector3(2.0822754, 4, 0.21813965)
+size = Vector3(1.5906067, 3.6358643, 0.11383057)
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
 length = 0.001
@@ -88,17 +77,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0592129, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0592129, 0, 0)
 collision_layer = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="hinge/StaticBody3D" unique_id=1446600056]
-transform = Transform3D(2.0727754, 0, 0, 0, 4.0095105, 0, 0, 0, 0.16482934, 0, 0, 0)
-mesh = SubResource("BoxMesh_hpvv5")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="hinge/StaticBody3D" unique_id=941019413]
-transform = Transform3D(0.17016734, 0, 0, 0, 0.4524984, 0, 0, 0, 0.27869564, 0.78368473, 0.1297102, -0.0058555454)
-mesh = SubResource("BoxMesh_83dcw")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D" unique_id=1273156620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032958984, 0, 0.0032348633)
+transform = Transform3D(0.9999989, 0, 0.0014835292, 0, 1, 0, -0.0014835292, 0, 0.9999989, 0.0890491, 0.13238525, -0.049047112)
 shape = SubResource("BoxShape3D_la1wf")
+
+[node name="door" parent="hinge/StaticBody3D" unique_id=1667332387 instance=ExtResource("2_83dcw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
 
 [node name="door_anim" type="AnimationPlayer" parent="." unique_id=663974529]
 libraries/ = SubResource("AnimationLibrary_18pbm")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bcletwqucy5lq"]
+
+[ext_resource type="PackedScene" uid="uid://chk2o855s5i4" path="res://assets/door.glb" id="1_5v6d3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26m4p"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="door" unique_id=1667332387 instance=ExtResource("1_5v6d3")]
+
+[node name="Cylinder" parent="." index="4" unique_id=857765409]
+surface_material_override/0 = SubResource("StandardMaterial3D_26m4p")

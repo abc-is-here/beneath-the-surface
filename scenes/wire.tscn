@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bd374fpxvfn6k"]
+
+[ext_resource type="PackedScene" uid="uid://dvnwhieobd11h" path="res://assets/wire.glb" id="1_oh5q0"]
+[ext_resource type="Shader" uid="uid://cytt7delhvmdb" path="res://scripts/dottedOutline.gdshader" id="2_5mfbr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3040"]
+render_priority = 0
+shader = ExtResource("2_5mfbr")
+shader_parameter/color = Color(0, 0.39, 0.0975, 1)
+shader_parameter/density = 10.0
+shader_parameter/dot_size = 0.11
+shader_parameter/speed = 0.4
+
+[node name="wire" unique_id=1454266617 instance=ExtResource("1_oh5q0")]
+
+[node name="Plane_002" parent="." index="0" unique_id=574827356]
+surface_material_override/0 = SubResource("ShaderMaterial_a3040")

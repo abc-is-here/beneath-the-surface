@@ -136,6 +136,29 @@ func _physics_process(delta):
 				collider.get_parent().get_parent().work(inventory)
 			if collider.is_in_group("cabinet"):
 				collider.work()
+			if collider.is_in_group("interact_items"):
+
+				var wire_index := -1
+
+				for i in range(inventory.size()):
+					if inventory[i]["name"] == "Wire":
+						wire_index = i
+						break
+
+				if wire_index != -1:
+
+					var used = await collider.use_item(inventory[wire_index])
+
+					if used:
+						inventory.remove_at(wire_index)
+
+						selected_item = clamp(selected_item, 0, inventory.size() - 1)
+
+						if inventory_ui.visible:
+							inventory_ui.items = inventory
+							inventory_ui.show_item()
+
+
 	
 	# --- Input ---
 	var input_dir = Input.get_vector("left", "right", "up", "down")
