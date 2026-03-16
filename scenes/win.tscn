@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://qg3cly16verk"]
+
+[ext_resource type="FontFile" uid="uid://jyxm1faskkuh" path="res://assets/Nosifer-Regular.ttf" id="1_r4oei"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_826fv"]
+font = ExtResource("1_r4oei")
+font_size = 70
+
+[node name="Win" type="Node2D" unique_id=1738244872]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1341558801]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 1958.0
+offset_bottom = 1110.0
+color = Color(0.32515085, 0, 0.031937473, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1852724829]
+offset_left = 570.0
+offset_top = 452.0
+offset_right = 1398.0
+offset_bottom = 575.0
+text = "You escaped!"
+label_settings = SubResource("LabelSettings_826fv")

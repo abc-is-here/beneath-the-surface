@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dggeweml20i3y"]
+
+[ext_resource type="Texture2D" uid="uid://biq2gjuvnyvnn" path="res://assets/fence_Wood062_2K_Color.jpg" id="1_0rm1d"]
+[ext_resource type="Texture2D" uid="uid://b4taf6a5bly1o" path="res://assets/fence_Wood062_2K_Normal.jpg" id="2_r0hke"]
+[ext_resource type="Texture2D" uid="uid://blimm35byj1sk" path="res://assets/fence_Wood062_2K_Roughness.png" id="3_ldv63"]
+
+[resource]
+albedo_texture = ExtResource("1_0rm1d")
+roughness_texture = ExtResource("3_ldv63")
+normal_enabled = true
+normal_texture = ExtResource("2_r0hke")

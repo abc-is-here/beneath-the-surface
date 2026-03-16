@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ig7l3xwmxgoi" path="res://scenes/cabinet.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://b2fm1rmas1g12" path="res://scenes/generator_without_wire.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://owcf1n0ppdn6" path="res://scenes/enemy.tscn" id="11_q5onr"]
+[ext_resource type="PackedScene" uid="uid://lqh484g7h8j2" path="res://scenes/drawer.tscn" id="12_q5onr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_e3hyu"]
 vertices = PackedVector3Array(-13.262913, 1, 9.230972, 13.237087, 1, 9.230972, 13.237087, 1, -9.269028, -13.262913, 1, -9.269028)
@@ -137,5 +138,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.145409, 1, 0)
 
 [node name="Marker3D3" type="Marker3D" parent="PatrolPoints" unique_id=1715215939]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98528004, 1, -6.89835)
+
+[node name="drawer" parent="." unique_id=525434970 instance=ExtResource("12_q5onr")]
+transform = Transform3D(-0.07672691, 0, 0.59507394, 0, 0.6, 0, -0.59507394, 0, -0.07672691, -8.87706, 0.52199745, 0.1744461)
 
 [editable path="PickUpItem5"]

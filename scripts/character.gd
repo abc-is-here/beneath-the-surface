@@ -15,9 +15,9 @@ extends CharacterBody3D
 
 # --- Stamina ---
 @export var max_stamina = 5.0
-@export var stamina_drain_rate = 1.2
-@export var stamina_regen_rate = 0.8
-@export var stamina_regen_delay = 1.0
+@export var stamina_drain_rate = 0.8
+@export var stamina_regen_rate = 0.9
+@export var stamina_regen_delay = 0.6
 
 var stamina = max_stamina
 var stamina_regen_timer = 0.0
@@ -136,6 +136,9 @@ func _physics_process(delta):
 				collider.get_parent().get_parent().work(inventory)
 			if collider.is_in_group("cabinet"):
 				collider.work()
+			if collider.get_parent().get_parent().is_in_group("drawer"):
+				collider.get_parent().get_parent().interact()
+				
 			if collider.is_in_group("interact_items"):
 
 				var wire_index := -1
@@ -157,6 +160,7 @@ func _physics_process(delta):
 						if inventory_ui.visible:
 							inventory_ui.items = inventory
 							inventory_ui.show_item()
+							
 
 
 	

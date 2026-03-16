@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2aiqlnjwej43"]
+
+[ext_resource type="PackedScene" uid="uid://b2tjlrien20w" path="res://scenes/player.tscn" id="1_crhmn"]
+
+[node name="House_interior" type="Node3D" unique_id=1713581362]
+
+[node name="player" parent="." unique_id=1941140771 instance=ExtResource("1_crhmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.869686, 6.162101, 0)
+visible = false
